@@ -1,0 +1,18 @@
+en:
+  layouts:
+    application:
+      title: "OpenMandriva Association File Store"
+      menu:
+        about: "About"
+        about_url: "https://www.openmandriva.org/About"
+        contacts: "Contacts"
+        contacts_url: "https://www.openmandriva.org/Join-contribute"
+  403_message: Access violation to this page!
+  404_message: Resource not found!
+  500_message: Something went wrong.
+
+  home:
+    index:
+      search_placeholder: "Hash for search"
+      search_button: "Search"
+      uploader: "You browser doesn't have HTML5 support."

@@ -1,0 +1,13 @@
+#!/bin/sh
+set -ex
+
+if [ -f /MIGRATE ]
+then
+	bundle exec rake db:migrate
+	rm /MIGRATE
+fi
+
+mkdir -p tmp/sockets
+rm -rf /public/*
+cp -r public/* /public
+bundle exec puma -b unix:///file_store/tmp/sockets/file_store.sock -e production -t 8:16 --preload
