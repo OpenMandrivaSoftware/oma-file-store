@@ -7,6 +7,7 @@ then
 	rm /MIGRATE
 fi
 
+bundle exec rake assets:precompile
 mkdir -p tmp/sockets
 rm -rf /public/*
 cp -r public/* /public
