@@ -18,6 +18,7 @@ ENV GEM_HOME /usr/local/bundle
 ENV BUNDLE_APP_CONFIG /usr/local/bundle
 
 ENV RAILS_ENV production
+ENV DATABASE_URL postgresql://postgres@postgres/file-store
 
 WORKDIR /file_store
 COPY bin ./bin
