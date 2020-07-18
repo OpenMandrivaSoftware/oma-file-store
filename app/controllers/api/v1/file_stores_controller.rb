@@ -25,10 +25,8 @@ class Api::V1::FileStoresController < Api::ApplicationController
   def show
     file_store = FileStore.find_by!(sha1_hash: params[:id])
     show = !params[:show].nil?
-    if file_store.file_name =~ /.*\.(log\.gz|txt\.gz|md5sum\.gz)$/ && show
-      headers['Content-Encoding'] = 'gzip'
-      send_file file_store.file.path, x_sendfile: false, type: 'text/plain', disposition: 'inline'
-    elsif file_store.file_name =~ /.*\.(log|txt|md5sum)$/
+
+    if file_store.file_name =~ /.*\.(log|txt|md5sum)$/ || (file_store.file_name =~ /.*\.(log\.gz|txt\.gz|md5sum\.gz)$/ && show)
       send_file file_store.file.path, x_sendfile: false, type: 'text/plain', disposition: 'inline'
     else
       send_file file_store.file.path, x_sendfile: false
