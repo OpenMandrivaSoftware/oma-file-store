@@ -1,4 +1,6 @@
 class FileUploader < CarrierWave::Uploader::Base
+  permissions 0644
+  directory_permissions 0755
   # Private root path
   root Rails.root
 
